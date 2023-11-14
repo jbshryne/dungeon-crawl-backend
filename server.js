@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const morgan = require("morgan");
 
-// const authRoutes = require('./routes/authRoutes');
+const userRoutes = require("./controllers/userController");
 // const gameRoutes = require('./routes/gameRoutes');
 
 const session = require("express-session");
@@ -17,7 +17,7 @@ app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-// app.use(authRoutes);
+app.use(userRoutes);
 // app.use(gameRoutes);
 
 app.get("/", (req, res) => {
