@@ -3,7 +3,6 @@ const app = express();
 const morgan = require("morgan");
 
 const userRoutes = require("./controllers/userController");
-// const gameRoutes = require('./routes/gameRoutes');
 
 const session = require("express-session");
 app.use(session({ secret: "badabing", cookie: { maxAge: 3600000 } }));
@@ -18,7 +17,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 app.use(userRoutes);
-// app.use(gameRoutes);
 
 app.get("/", (req, res) => {
   res.send("Hello World!");

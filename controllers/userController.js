@@ -23,8 +23,12 @@ router.post("/login", async (req, res) => {
         res.json(userToLogin);
       } else {
         res.status(401).json({ message: "Incorrect Password" });
+        // res.json({ message: "Incorrect Password" });
       }
     });
+  } else {
+    res.status(401).json({ message: "User not found" });
+    // res.json({ message: "User not found" });
   }
 });
 
@@ -42,6 +46,9 @@ router.post("/signup", async (req, res) => {
 
       res.json({ message: "User created successfully" });
     });
+  } else {
+    res.status(401).json({ message: "Username and password required" });
+    // res.json({ message: "Username and password required" });
   }
 });
 
